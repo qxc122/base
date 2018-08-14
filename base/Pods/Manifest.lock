@@ -1,0 +1,36 @@
+PODS:
+  - DZNEmptyDataSet (1.8.1)
+  - FDFullscreenPopGesture (1.1)
+  - IQKeyboardManager (6.1.1)
+  - Masonry (1.1.0)
+  - MJRefresh (3.1.15.3)
+  - "UITableView+FDTemplateLayoutCell (1.6)"
+
+DEPENDENCIES:
+  - DZNEmptyDataSet
+  - FDFullscreenPopGesture
+  - IQKeyboardManager
+  - Masonry
+  - MJRefresh
+  - "UITableView+FDTemplateLayoutCell"
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - DZNEmptyDataSet
+    - FDFullscreenPopGesture
+    - IQKeyboardManager
+    - Masonry
+    - MJRefresh
+    - "UITableView+FDTemplateLayoutCell"
+
+SPEC CHECKSUMS:
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  IQKeyboardManager: 79c57795f5c2408d259d37b9da2ed07efcbb5225
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
+
+PODFILE CHECKSUM: b75b228d61aa382575a48d8e28f18d57edd7c389
+
+COCOAPODS: 1.5.3

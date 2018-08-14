@@ -1,0 +1,38 @@
+//
+//  Header.h
+//  base
+//
+//  Created by 开发者最好的 on 2018/8/14.
+//  Copyright © 2018年 开发者最好的. All rights reserved.
+//
+
+#ifndef Header_h
+#define Header_h
+
+#define PingFangSC_Regular(F) [UIFont systemFontOfSize:F]
+#define PingFangSC_Medium(F) [UIFont boldSystemFontOfSize:F]
+
+#define RGBColor(R,G,B)  [UIColor colorWithRed:(R)/255.0f green:(G)/255.0f blue:(B)/255.0f alpha:1.0f]
+#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+#define RandomColor RGBColor(arc4random_uniform(256)/255.0,arc4random_uniform(256)/255.0,arc4random_uniform(256)/255.0)
+#define ColorWithHex(rgbValue,a) \
+[UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16)) / 255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8)) / 255.0 \
+blue:((float)(rgbValue & 0xFF)) / 255.0 alpha:(a)]
+
+#define kWeakSelf(type)  __weak typeof(type) weak##type = type;
+
+#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREENWIDTH [UIScreen mainScreen].bounds.size.width
+#define PROPORTION_HEIGHT  SCREENHEIGHT/667.0
+#define PROPORTION_WIDTH   SCREENWIDTH/375.0
+
+#define IPoneX (SCREENHEIGHT == 812)
+
+#ifdef DEBUG
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#define NSLog(...)
+#endif
+
+#endif /* Header_h */
