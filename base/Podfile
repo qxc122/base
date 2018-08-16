@@ -9,5 +9,6 @@ target 'base' do
     pod 'UITableView+FDTemplateLayoutCell'     # UITableViewCell 自动高度计算，缓存
     pod 'FDFullscreenPopGesture'
     pod 'IQKeyboardManager'
-
+    pod 'Reachability'
+    pod 'MBProgressHUD'
 end

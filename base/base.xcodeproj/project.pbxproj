@@ -15,10 +15,13 @@
 		BFA9AC4521227BC500668F2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9AC4421227BC500668F2F /* main.m */; };
 		BFA9AC4F21227BC500668F2F /* baseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9AC4E21227BC500668F2F /* baseTests.m */; };
 		BFA9AC5A21227BC500668F2F /* baseUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9AC5921227BC500668F2F /* baseUITests.m */; };
-		BFA9AC6F2122803F00668F2F /* basicUiTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9AC6E2122803E00668F2F /* basicUiTableView.m */; };
+		BFA9AC6F2122803F00668F2F /* baseUiTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9AC6E2122803E00668F2F /* baseUiTableView.m */; };
 		BFA9AC722122804B00668F2F /* baseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9AC702122804B00668F2F /* baseCell.m */; };
 		BFA9AC752122805500668F2F /* basicVc.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9AC732122805500668F2F /* basicVc.m */; };
 		BFA9AC7A212297C700668F2F /* NSString+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9AC79212297C600668F2F /* NSString+Add.m */; };
+		BFA9AC7E21241DF200668F2F /* NetworkStateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9AC7D21241DF200668F2F /* NetworkStateTool.m */; };
+		BFA9AC802125126100668F2F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA9AC7F2125126100668F2F /* CoreTelephony.framework */; };
+		BFA9AC852125188F00668F2F /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9AC842125188F00668F2F /* MBProgressHUD+MJ.m */; };
 		FE7729A27CEFF57F59AACCB0 /* libPods-base.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8EAEC488078379D62520D8E /* libPods-base.a */; };
 /* End PBXBuildFile section */
 
@@ -58,8 +61,8 @@
 		BFA9AC5521227BC500668F2F /* baseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = baseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFA9AC5921227BC500668F2F /* baseUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = baseUITests.m; sourceTree = "<group>"; };
 		BFA9AC5B21227BC500668F2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BFA9AC6D2122803E00668F2F /* basicUiTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = basicUiTableView.h; sourceTree = "<group>"; };
-		BFA9AC6E2122803E00668F2F /* basicUiTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = basicUiTableView.m; sourceTree = "<group>"; };
+		BFA9AC6D2122803E00668F2F /* baseUiTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = baseUiTableView.h; sourceTree = "<group>"; };
+		BFA9AC6E2122803E00668F2F /* baseUiTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = baseUiTableView.m; sourceTree = "<group>"; };
 		BFA9AC702122804B00668F2F /* baseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = baseCell.m; sourceTree = "<group>"; };
 		BFA9AC712122804B00668F2F /* baseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = baseCell.h; sourceTree = "<group>"; };
 		BFA9AC732122805500668F2F /* basicVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = basicVc.m; sourceTree = "<group>"; };
@@ -67,6 +70,11 @@
 		BFA9AC7621228F9E00668F2F /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		BFA9AC78212297C600668F2F /* NSString+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Add.h"; sourceTree = "<group>"; };
 		BFA9AC79212297C600668F2F /* NSString+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Add.m"; sourceTree = "<group>"; };
+		BFA9AC7C21241DF200668F2F /* NetworkStateTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkStateTool.h; sourceTree = "<group>"; };
+		BFA9AC7D21241DF200668F2F /* NetworkStateTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkStateTool.m; sourceTree = "<group>"; };
+		BFA9AC7F2125126100668F2F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		BFA9AC832125188F00668F2F /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
+		BFA9AC842125188F00668F2F /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
 		E8EAEC488078379D62520D8E /* libPods-base.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-base.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -75,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFA9AC802125126100668F2F /* CoreTelephony.framework in Frameworks */,
 				FE7729A27CEFF57F59AACCB0 /* libPods-base.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,6 +139,7 @@
 		BFA9AC3421227BC300668F2F /* base */ = {
 			isa = PBXGroup;
 			children = (
+				BFA9AC812125188F00668F2F /* Third party */,
 				BFA9AC6921227FD800668F2F /* baseTool */,
 				BFA9AC3521227BC300668F2F /* AppDelegate.h */,
 				BFA9AC3621227BC300668F2F /* AppDelegate.m */,
@@ -165,6 +175,7 @@
 		BFA9AC6921227FD800668F2F /* baseTool */ = {
 			isa = PBXGroup;
 			children = (
+				BFA9AC7B21241DDE00668F2F /* Network state */,
 				BFA9AC6A21227FD800668F2F /* baseTableVc */,
 				BFA9AC6C21227FD800668F2F /* baseVc */,
 				BFA9AC7621228F9E00668F2F /* Header.h */,
@@ -176,8 +187,8 @@
 			isa = PBXGroup;
 			children = (
 				BFA9AC77212297C600668F2F /* category */,
-				BFA9AC6D2122803E00668F2F /* basicUiTableView.h */,
-				BFA9AC6E2122803E00668F2F /* basicUiTableView.m */,
+				BFA9AC6D2122803E00668F2F /* baseUiTableView.h */,
+				BFA9AC6E2122803E00668F2F /* baseUiTableView.m */,
 				BFA9AC6B21227FD800668F2F /* baseCell */,
 			);
 			path = baseTableVc;
@@ -210,9 +221,36 @@
 			path = category;
 			sourceTree = "<group>";
 		};
+		BFA9AC7B21241DDE00668F2F /* Network state */ = {
+			isa = PBXGroup;
+			children = (
+				BFA9AC7C21241DF200668F2F /* NetworkStateTool.h */,
+				BFA9AC7D21241DF200668F2F /* NetworkStateTool.m */,
+			);
+			path = "Network state";
+			sourceTree = "<group>";
+		};
+		BFA9AC812125188F00668F2F /* Third party */ = {
+			isa = PBXGroup;
+			children = (
+				BFA9AC822125188F00668F2F /* MBProgressHUD+MJ */,
+			);
+			path = "Third party";
+			sourceTree = "<group>";
+		};
+		BFA9AC822125188F00668F2F /* MBProgressHUD+MJ */ = {
+			isa = PBXGroup;
+			children = (
+				BFA9AC832125188F00668F2F /* MBProgressHUD+MJ.h */,
+				BFA9AC842125188F00668F2F /* MBProgressHUD+MJ.m */,
+			);
+			path = "MBProgressHUD+MJ";
+			sourceTree = "<group>";
+		};
 		C63DBC767B6946A9FA1A096E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BFA9AC7F2125126100668F2F /* CoreTelephony.framework */,
 				E8EAEC488078379D62520D8E /* libPods-base.a */,
 			);
 			name = Frameworks;
@@ -391,12 +429,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFA9AC6F2122803F00668F2F /* basicUiTableView.m in Sources */,
+				BFA9AC852125188F00668F2F /* MBProgressHUD+MJ.m in Sources */,
+				BFA9AC6F2122803F00668F2F /* baseUiTableView.m in Sources */,
 				BFA9AC7A212297C700668F2F /* NSString+Add.m in Sources */,
 				BFA9AC3A21227BC300668F2F /* ViewController.m in Sources */,
 				BFA9AC4521227BC500668F2F /* main.m in Sources */,
 				BFA9AC752122805500668F2F /* basicVc.m in Sources */,
 				BFA9AC722122804B00668F2F /* baseCell.m in Sources */,
+				BFA9AC7E21241DF200668F2F /* NetworkStateTool.m in Sources */,
 				BFA9AC3721227BC300668F2F /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -577,7 +617,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qxc126.base;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -596,7 +636,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qxc126.base;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

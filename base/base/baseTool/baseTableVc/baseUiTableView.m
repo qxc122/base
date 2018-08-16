@@ -6,37 +6,36 @@
 //  Copyright © 2017年 qxc122@126.com. All rights reserved.
 //
 
-#import "basicUiTableView.h"
+#import "baseUiTableView.h"
 #import "UIScrollView+EmptyDataSet.h"
 #import "Masonry.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "Header.h"
 #import "NSString+Add.h"
-@interface basicUiTableView ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+#import "NetworkStateTool.h"
+#import <CoreTelephony/CTCellularData.h>
+@interface baseUiTableView ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @end
 
-//NSInteger Mystatus = AFNetworkReachabilityStatusReachableViaWWAN;
-@implementation basicUiTableView
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.style = UITableViewStyleGrouped;
-        self.Pagesize = 10;
-        self.Pagenumber = 0;
-    }
-    return self;
-}
-
+@implementation baseUiTableView
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.style = UITableViewStyleGrouped;
+    self.Pagesize = 10;
+    self.Pagenumber = 0;
+    self.NodataTitle = @"没有数据";
+    self.NodataDescribe = @"快来添加吧";
+    
     [self setTableView];
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    self.empty_type = fail_empty_num;
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(networkStateChange) name:kReachabilityChangedNotification object:nil];
 //    [self.header beginRefreshing];
 }
 - (void)setTableView{
-
     UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectZero style:self.style];
     [tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     tableView.backgroundColor =  [UIColor clearColor];
@@ -68,9 +67,14 @@
     return _header;
 }
 - (void)loadNewData{
-    
+        [self performSelector:@selector(ttt) withObject:nil afterDelay:2.0];
 }
-
+- (void)ttt{
+    kWeakSelf(self);
+    [self.header endRefreshingWithCompletionBlock:^{
+        [weakself.tableView reloadData];
+    }];
+}
 #pragma -mark<mj_footer  头部>
 - (void)set_MJRefreshFooter{
     MJRefreshFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
@@ -78,15 +82,15 @@
 }
 #pragma -mark<加载更多数据>
 - (void)loadMoreData{
-    
+
 }
+
 - (void)setRegisterCells:(NSArray *)registerCells{
     _registerCells = registerCells;
     for (Class tmp in registerCells) {
         [self.tableView registerClass:tmp forCellReuseIdentifier:NSStringFromClass(tmp)];
     }
 }
-
 
 #pragma --mark< UITableViewDelegate 高>
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -191,75 +195,52 @@
   
 #pragma --<空白页处理>
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
-    if (self.empty_type == succes_empty_num) {
-        return [UIImage imageNamed:@"place"];
-    } else if (self.empty_type == fail_empty_num) {
-        return [UIImage imageNamed:@"place"];
-    } else if (self.empty_type == NoNetworkConnection_empty_num) {
-        return [UIImage imageNamed:@"place"];
+    if([[NetworkStateTool sharedInstance] isReachable]){
+        if (self.empty_type == succes_empty_num) {
+            return [UIImage imageNamed:PIC_nodata];
+        } else  {
+            return [UIImage imageNamed:PIC_Loadfailure];
+        }
     }else{
-        return [UIImage imageNamed:@"开小差"];
+        return [UIImage imageNamed:PIC_Nonetwork];
     }
     return nil;
 }
     
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
-    
-    if (self.empty_type == NoNetworkConnection_empty_num) {
-        NSMutableAttributedString *all = [[NSMutableAttributedString alloc]init];
-        NSAttributedString *title = [[NSString stringWithFormat:@"\n%@",NSLocalizedString(@"网络连接异常，请检查网络", @"网络连接异常，请检查网络")] CreatMutableAttributedStringWithFont:PingFangSC_Regular(14) Color:ColorWithHex(0x000000, 0.4) LineSpacing:0 Alignment:NSTextAlignmentCenter BreakMode:NSLineBreakByTruncatingTail firstLineHeadIndent:0 headIndent:0 paragraphSpacing:0 WordSpace:0];
-        [all appendAttributedString:title];
-        return all;
-    }else if (self.empty_type == NoNetworkConnection_TO_NetworkConnection_empty_num) {
-        NSMutableAttributedString *all = [[NSMutableAttributedString alloc]init];
-        NSAttributedString *title = [[NSString stringWithFormat:@"\n%@",NSLocalizedString(@"网络已连接，请重试", @"网络已连接，请重试")] CreatMutableAttributedStringWithFont:PingFangSC_Regular(14) Color:ColorWithHex(0x000000, 0.4) LineSpacing:0 Alignment:NSTextAlignmentCenter BreakMode:NSLineBreakByTruncatingTail firstLineHeadIndent:0 headIndent:0 paragraphSpacing:0 WordSpace:0];
-        [all appendAttributedString:title];
-        return all;
-    }else if (self.empty_type == succes_empty_num){
-        NSMutableAttributedString *all = [[NSMutableAttributedString alloc]init];
-        NSAttributedString *title = [[NSString stringWithFormat:@"\n%@",self.NodataTitle&&self.NodataTitle.length?self.NodataTitle:@" "] CreatMutableAttributedStringWithFont:PingFangSC_Regular(14) Color:ColorWithHex(0x000000, 0.4) LineSpacing:0 Alignment:NSTextAlignmentCenter BreakMode:NSLineBreakByTruncatingTail firstLineHeadIndent:0 headIndent:0 paragraphSpacing:0 WordSpace:0];
-        [all appendAttributedString:title];
-        return all;
+    if([[NetworkStateTool sharedInstance] isReachable]){
+        if (self.empty_type == succes_empty_num) {
+            NSMutableAttributedString *all = [[NSMutableAttributedString alloc]init];
+            NSAttributedString *title = [[NSString stringWithFormat:@"\n%@",self.NodataTitle&&self.NodataTitle.length?self.NodataTitle:STR_nodata] CreatMutableAttributedStringWithFont:PingFangSC_Regular(14) Color:ColorWithHex(0x000000, 0.4) LineSpacing:0 Alignment:NSTextAlignmentCenter BreakMode:NSLineBreakByTruncatingTail firstLineHeadIndent:0 headIndent:0 paragraphSpacing:0 WordSpace:0];
+            [all appendAttributedString:title];
+            return all;
+        } else  {
+            NSMutableAttributedString *all = [[NSMutableAttributedString alloc]init];
+            NSAttributedString *title = [[NSString stringWithFormat:STR_Loadfailure] CreatMutableAttributedStringWithFont:PingFangSC_Regular(14) Color:ColorWithHex(0x000000, 0.4) LineSpacing:0 Alignment:NSTextAlignmentCenter BreakMode:NSLineBreakByTruncatingTail firstLineHeadIndent:0 headIndent:0 paragraphSpacing:0 WordSpace:0];
+            [all appendAttributedString:title];
+            return all;
+        }
     }else{
         NSMutableAttributedString *all = [[NSMutableAttributedString alloc]init];
-        NSAttributedString *title = [[NSString stringWithFormat:@"\n%@",NSLocalizedString(@"服务器开小差了,请重试", @"服务器开小差了,请重试")] CreatMutableAttributedStringWithFont:PingFangSC_Regular(14) Color:ColorWithHex(0x000000, 0.4) LineSpacing:0 Alignment:NSTextAlignmentCenter BreakMode:NSLineBreakByTruncatingTail firstLineHeadIndent:0 headIndent:0 paragraphSpacing:0 WordSpace:0];
+        NSAttributedString *title = [[NSString stringWithFormat:STR_Nonetwork] CreatMutableAttributedStringWithFont:PingFangSC_Regular(14) Color:ColorWithHex(0x000000, 0.4) LineSpacing:0 Alignment:NSTextAlignmentCenter BreakMode:NSLineBreakByTruncatingTail firstLineHeadIndent:0 headIndent:0 paragraphSpacing:0 WordSpace:0];
         [all appendAttributedString:title];
         return all;
     }
-    return nil;
 }
-- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView{
-    if (self.empty_type == NoNetworkConnection_empty_num) {
-        NSMutableAttributedString *all = [[NSMutableAttributedString alloc]init];
-        [all appendAttributedString:[@"\n\n\n " CreatMutableAttributedStringWithFont:PingFangSC_Regular(12) Color:ColorWithHex(0x2D2D2D, 0.3) LineSpacing:0 Alignment:NSTextAlignmentCenter BreakMode:NSLineBreakByTruncatingTail firstLineHeadIndent:0 headIndent:0 paragraphSpacing:0 WordSpace:0]];
-        return all;
-    }if (self.empty_type == NoNetworkConnection_TO_NetworkConnection_empty_num) {
-        NSMutableAttributedString *all = [[NSMutableAttributedString alloc]init];
-        [all appendAttributedString:[@"\n\n\n " CreatMutableAttributedStringWithFont:PingFangSC_Regular(12) Color:ColorWithHex(0x2D2D2D, 0.3) LineSpacing:0 Alignment:NSTextAlignmentCenter BreakMode:NSLineBreakByTruncatingTail firstLineHeadIndent:0 headIndent:0 paragraphSpacing:0 WordSpace:0]];
-        return all;
-    }else if (self.empty_type == succes_empty_num){
-        NSMutableAttributedString *all = [[NSMutableAttributedString alloc]init];
-        NSAttributedString *title = [[NSString stringWithFormat:@"%@\n\n",self.NodataDescribe&&self.NodataDescribe.length?self.NodataDescribe:@" "] CreatMutableAttributedStringWithFont:PingFangSC_Regular(14) Color:ColorWithHex(0x000000, 0.4) LineSpacing:0 Alignment:NSTextAlignmentCenter BreakMode:NSLineBreakByTruncatingTail firstLineHeadIndent:0 headIndent:0 paragraphSpacing:0 WordSpace:0];
-        [all appendAttributedString:title];
-        return all;
-    }else{
-        NSMutableAttributedString *all = [[NSMutableAttributedString alloc]init];
-        [all appendAttributedString:[@"\n\n\n " CreatMutableAttributedStringWithFont:PingFangSC_Regular(12) Color:ColorWithHex(0x2D2D2D, 0.3) LineSpacing:0 Alignment:NSTextAlignmentCenter BreakMode:NSLineBreakByTruncatingTail firstLineHeadIndent:0 headIndent:0 paragraphSpacing:0 WordSpace:0]];
-        return all;
-    }
-    return nil;
-}
+//- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView{
+//
+//}
     //按钮文本或者背景样式
-- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
-    if (self.empty_type == NoNetworkConnection_empty_num) {
-        return [NSLocalizedString(@"检查设置", @"检查设置") CreatMutableAttributedStringWithFont:PingFangSC_Regular(16) Color:ColorWithHex(0x4EA2FF, 1.0) LineSpacing:0 Alignment:NSTextAlignmentCenter BreakMode:NSLineBreakByTruncatingTail firstLineHeadIndent:0 headIndent:0 paragraphSpacing:0 WordSpace:0];
-    }else if (self.empty_type != succes_empty_num){
-        return [NSLocalizedString(@"重新加载", @"重新加载") CreatMutableAttributedStringWithFont:PingFangSC_Regular(16) Color:ColorWithHex(0x4EA2FF, 1.0) LineSpacing:0 Alignment:NSTextAlignmentCenter BreakMode:NSLineBreakByTruncatingTail firstLineHeadIndent:0 headIndent:0 paragraphSpacing:0 WordSpace:0];
-    }if (self.empty_type == NoNetworkConnection_TO_NetworkConnection_empty_num) {
-        return [NSLocalizedString(@"重新加载", @"重新加载") CreatMutableAttributedStringWithFont:PingFangSC_Regular(16) Color:ColorWithHex(0x4EA2FF, 1.0) LineSpacing:0 Alignment:NSTextAlignmentCenter BreakMode:NSLineBreakByTruncatingTail firstLineHeadIndent:0 headIndent:0 paragraphSpacing:0 WordSpace:0];
-    }
-    return nil;
-}
+//- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
+//    if (self.empty_type == NoNetworkConnection_empty_num) {
+//        return [NSLocalizedString(@"检查设置", @"检查设置") CreatMutableAttributedStringWithFont:PingFangSC_Regular(16) Color:ColorWithHex(0x4EA2FF, 1.0) LineSpacing:0 Alignment:NSTextAlignmentCenter BreakMode:NSLineBreakByTruncatingTail firstLineHeadIndent:0 headIndent:0 paragraphSpacing:0 WordSpace:0];
+//    }else if (self.empty_type != succes_empty_num){
+//        return [NSLocalizedString(@"重新加载", @"重新加载") CreatMutableAttributedStringWithFont:PingFangSC_Regular(16) Color:ColorWithHex(0x4EA2FF, 1.0) LineSpacing:0 Alignment:NSTextAlignmentCenter BreakMode:NSLineBreakByTruncatingTail firstLineHeadIndent:0 headIndent:0 paragraphSpacing:0 WordSpace:0];
+//    }else if (self.empty_type == NoNetworkConnection_empty_num) {
+//        return [NSLocalizedString(@"重新加载", @"重新加载") CreatMutableAttributedStringWithFont:PingFangSC_Regular(16) Color:ColorWithHex(0x4EA2FF, 1.0) LineSpacing:0 Alignment:NSTextAlignmentCenter BreakMode:NSLineBreakByTruncatingTail firstLineHeadIndent:0 headIndent:0 paragraphSpacing:0 WordSpace:0];
+//    }
+//    return nil;
+//}
 //- (UIImage *)buttonBackgroundImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
 //
 //}
@@ -275,8 +256,6 @@
 //    return 15.0;
 //}
     
-    
-    
 //空白页的背景色
 - (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView {
     return [UIColor clearColor];
@@ -288,12 +267,51 @@
 }
     
 //空白页点击事件
-//- (void)emptyDataSetDidTapView:(UIScrollView *)scrollView {
-//    [self DidTap];
+- (void)emptyDataSetDidTapView:(UIScrollView *)scrollView {
+    NSLog(@"%s",__FUNCTION__);
+    if([[NetworkStateTool sharedInstance] isReachable]){
+        if (self.empty_type == fail_empty_num && !self.header.isRefreshing) {
+            [self.header beginRefreshing];
+            [self.tableView reloadData];
+        }
+    }else{
+        if (@available(iOS 9.0, *)) {
+            CTCellularData *cellularData = [[CTCellularData alloc]init];
+            if(cellularData.restrictedState == kCTCellularDataNotRestricted){
+                NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+                NSString *appCurName = [infoDictionary objectForKey:@"CFBundleDisplayName"];
+                [self presentViewControllerWithTitle:@"您没有网络权限" WithMessage:[NSString stringWithFormat:@"请在设置>蜂窝移动网络>%@中打开网络使用权限",appCurName]];
+            }else{
+                [self RemindUsersToOpenDataOrWiFi];
+            }
+        }else{
+            [self RemindUsersToOpenDataOrWiFi];
+        }
+    }
+}
+- (void)RemindUsersToOpenDataOrWiFi{
+    [MBProgressHUD showPrompt:@"请打开您的手机数据流量或WIFI~"];
+}
+    
+//- (void)emptyDataSetDidTapButton:(UIScrollView *)scrollView{
+//
 //}
     
-- (void)emptyDataSetDidTapButton:(UIScrollView *)scrollView{
-
+- (void)networkStateChange{
+    if(!self.header.isRefreshing){
+        if(self.empty_type == NoNetworkConnection_empty_num){
+            [self.header beginRefreshing];
+        }
+        [self.tableView reloadData];
+    }
+}
+    
+- (void)presentViewControllerWithTitle:(NSString *)title WithMessage:(NSString *)message{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 @end
 

@@ -35,4 +35,13 @@ blue:((float)(rgbValue & 0xFF)) / 255.0 alpha:(a)]
 #define NSLog(...)
 #endif
 
+#define PIC_Nonetwork @"Nonetwork"
+#define PIC_Loadfailure @"Loadfailure"
+#define PIC_nodata   @"nodata"
+
+#define STR_Nonetwork @"\n请打开Wifi或移动数据"
+#define STR_Loadfailure @"\n加载失败，请重试"
+#define STR_nodata   @"没有数据"
+
+
 #endif /* Header_h */

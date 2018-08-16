@@ -12,17 +12,13 @@
 
 typedef NS_ENUM(NSInteger, empty_num)
 {
-    In_loading_empty_num = -48, //加载中
-    
     fail_empty_num , //加载失败
     succes_empty_num ,   //加载成功
     NoNetworkConnection_empty_num ,   //无网络连接
-    NoNetworkConnection_TO_NetworkConnection_empty_num,   //从无网络连接 到有 网络连接
-    noItems_empty_num,   //没有数组
 };
 
 
-@interface basicUiTableView : basicVc
+@interface baseUiTableView : basicVc
 @property (nonatomic,strong) MJRefreshHeader *header;//头部
 @property (nonatomic,strong) MJRefreshFooter *footer;//底部
 @property (nonatomic,strong) NSString  *NodataTitle; // 没有数据时候的标题

@@ -7,9 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "NetworkStateTool.h"
 
 @interface AppDelegate ()
-
+@property (strong, nonatomic) NetworkStateTool *netStaue;
 @end
 
 @implementation AppDelegate
@@ -17,6 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.netStaue = [NetworkStateTool sharedInstance];
     return YES;
 }
 
