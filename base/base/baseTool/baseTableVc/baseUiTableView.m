@@ -14,6 +14,7 @@
 #import "NSString+Add.h"
 #import "NetworkStateTool.h"
 #import <CoreTelephony/CTCellularData.h>
+
 @interface baseUiTableView ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @end
@@ -25,15 +26,11 @@
     self.Pagesize = 10;
     self.Pagenumber = 0;
     self.NodataTitle = @"没有数据";
-    self.NodataDescribe = @"快来添加吧";
     
     [self setTableView];
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-    self.empty_type = fail_empty_num;
-    
     [[NSNotificationCenter defaultCenter]addObserver:self
                                             selector:@selector(networkStateChange) name:kReachabilityChangedNotification object:nil];
-//    [self.header beginRefreshing];
 }
 - (void)setTableView{
     UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectZero style:self.style];
@@ -87,40 +84,43 @@
 
 - (void)setRegisterCells:(NSArray *)registerCells{
     _registerCells = registerCells;
-    for (Class tmp in registerCells) {
-        [self.tableView registerClass:tmp forCellReuseIdentifier:NSStringFromClass(tmp)];
+    for (NSString *tmp in registerCells) {
+        if([tmp hasSuffix:@"xib"] || [tmp hasSuffix:@"Xib"]){
+            [self.tableView registerNib:[UINib nibWithNibName:tmp bundle:nil] forCellReuseIdentifier:tmp];
+        }else{
+            [self.tableView registerClass:NSClassFromString(tmp) forCellReuseIdentifier:tmp]; 
+        }
     }
 }
 
 #pragma --mark< UITableViewDelegate 高>
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.empty_type == succes_empty_num) {
-        id cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
-        if ([cell isKindOfClass:[UITableViewCell class]]) {
-            kWeakSelf(self);
-            return [tableView fd_heightForCellWithIdentifier:NSStringFromClass([cell class]) configuration:^(id cell) {
-                NSString *method =[NSString stringWithFormat:@"configure%@:atIndexPath:",NSStringFromClass([cell class])];
-
-                SEL selector = NSSelectorFromString(method);
-                if ([weakself respondsToSelector:selector]) {
-                    [weakself performSelector:selector withObject:cell withObject:indexPath];
-                }
-            }];
-        }
+        kWeakSelf(self);
+        return [tableView fd_heightForCellWithIdentifier:self.registerCells[indexPath.section] cacheByIndexPath:indexPath configuration:^(id cell)
+                {
+                    NSString *method =[NSString stringWithFormat:@"configure%@:atIndexPath:",NSStringFromClass([cell class])];
+                    SEL selector = NSSelectorFromString(method);
+                    if ([weakself respondsToSelector:selector]) {
+                        [weakself performSelector:selector withObject:cell withObject:indexPath];
+                    }
+                }];
+    }else{
+        return 0.01;
     }
-    return 0.01;
 }
 //- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 //
 //}
 #pragma --mark< 创建cell >
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCellT"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCellT"];
-    }
-    return  cell;
-}
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    testCellXib *cell = [tableView dequeueReusableCellWithIdentifier:@"testCellXib" forIndexPath:indexPath];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCellT"];
+//    if (!cell) {
+//        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCellT"];
+//    }
+//    return  cell;
+//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 0.01;
@@ -135,9 +135,9 @@
      return nil;
 }
 #pragma -mark<UITableViewDataSource>
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 0;
-}
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+//    return 0;
+//}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     if (self.empty_type == succes_empty_num) {
         return 1;
@@ -268,7 +268,6 @@
     
 //空白页点击事件
 - (void)emptyDataSetDidTapView:(UIScrollView *)scrollView {
-    NSLog(@"%s",__FUNCTION__);
     if([[NetworkStateTool sharedInstance] isReachable]){
         if (self.empty_type == fail_empty_num && !self.header.isRefreshing) {
             [self.header beginRefreshing];
@@ -280,7 +279,7 @@
             if(cellularData.restrictedState == kCTCellularDataNotRestricted){
                 NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
                 NSString *appCurName = [infoDictionary objectForKey:@"CFBundleDisplayName"];
-                [self presentViewControllerWithTitle:@"您没有网络权限" WithMessage:[NSString stringWithFormat:@"请在设置>蜂窝移动网络>%@中打开网络使用权限",appCurName]];
+                [self presentViewControllerToSystemSetupWithTitle:@"您没有网络权限" WithMessage:[NSString stringWithFormat:@"请在设置>蜂窝移动网络>%@中打开网络使用权限",appCurName]];
             }else{
                 [self RemindUsersToOpenDataOrWiFi];
             }
@@ -306,7 +305,7 @@
     }
 }
     
-- (void)presentViewControllerWithTitle:(NSString *)title WithMessage:(NSString *)message{
+- (void)presentViewControllerToSystemSetupWithTitle:(NSString *)title WithMessage:(NSString *)message {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];

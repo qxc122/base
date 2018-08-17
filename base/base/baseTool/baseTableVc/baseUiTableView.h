@@ -12,8 +12,8 @@
 
 typedef NS_ENUM(NSInteger, empty_num)
 {
-    fail_empty_num , //加载失败
     succes_empty_num ,   //加载成功
+    fail_empty_num , //加载失败
     NoNetworkConnection_empty_num ,   //无网络连接
 };
 
@@ -22,8 +22,7 @@ typedef NS_ENUM(NSInteger, empty_num)
 @property (nonatomic,strong) MJRefreshHeader *header;//头部
 @property (nonatomic,strong) MJRefreshFooter *footer;//底部
 @property (nonatomic,strong) NSString  *NodataTitle; // 没有数据时候的标题
-@property (nonatomic,strong) NSString  *NodataDescribe; // 没有数据时候的描叙
-@property (nonatomic,assign) empty_num  empty_type; //
+@property (nonatomic,assign) empty_num  empty_type;
 @property (nonatomic,weak) UITableView *tableView;
 @property (nonatomic,assign) UITableViewStyle  style; // 默认是分组
 @property (nonatomic,assign) NSInteger Pagenumber;

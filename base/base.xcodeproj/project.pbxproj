@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF5F75522126544D002F348F /* testCellXib.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5F75502126544D002F348F /* testCellXib.m */; };
+		BF5F75532126544D002F348F /* testCellXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5F75512126544D002F348F /* testCellXib.xib */; };
+		BF5F755721266930002F348F /* testTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5F755621266930002F348F /* testTableVC.m */; };
+		BF5F755A21266AB1002F348F /* BorrowingBill.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5F755821266AB1002F348F /* BorrowingBill.m */; };
 		BFA9AC3721227BC300668F2F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9AC3621227BC300668F2F /* AppDelegate.m */; };
 		BFA9AC3A21227BC300668F2F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9AC3921227BC300668F2F /* ViewController.m */; };
 		BFA9AC3D21227BC300668F2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFA9AC3B21227BC300668F2F /* Main.storyboard */; };
@@ -45,6 +49,13 @@
 /* Begin PBXFileReference section */
 		22DF88D12F3E8094A2583C5F /* Pods-base.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-base.debug.xcconfig"; path = "Pods/Target Support Files/Pods-base/Pods-base.debug.xcconfig"; sourceTree = "<group>"; };
 		61D1641A44BF8EE32DF469E1 /* Pods-base.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-base.release.xcconfig"; path = "Pods/Target Support Files/Pods-base/Pods-base.release.xcconfig"; sourceTree = "<group>"; };
+		BF5F754F2126544D002F348F /* testCellXib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testCellXib.h; sourceTree = "<group>"; };
+		BF5F75502126544D002F348F /* testCellXib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testCellXib.m; sourceTree = "<group>"; };
+		BF5F75512126544D002F348F /* testCellXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = testCellXib.xib; sourceTree = "<group>"; };
+		BF5F755521266930002F348F /* testTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testTableVC.h; sourceTree = "<group>"; };
+		BF5F755621266930002F348F /* testTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testTableVC.m; sourceTree = "<group>"; };
+		BF5F755821266AB1002F348F /* BorrowingBill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BorrowingBill.m; sourceTree = "<group>"; };
+		BF5F755921266AB1002F348F /* BorrowingBill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorrowingBill.h; sourceTree = "<group>"; };
 		BFA9AC3221227BC300668F2F /* base.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = base.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFA9AC3521227BC300668F2F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BFA9AC3621227BC300668F2F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -114,6 +125,27 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BF5F754E2126541B002F348F /* test_cell */ = {
+			isa = PBXGroup;
+			children = (
+				BF5F754F2126544D002F348F /* testCellXib.h */,
+				BF5F75502126544D002F348F /* testCellXib.m */,
+				BF5F75512126544D002F348F /* testCellXib.xib */,
+				BF5F755921266AB1002F348F /* BorrowingBill.h */,
+				BF5F755821266AB1002F348F /* BorrowingBill.m */,
+			);
+			path = test_cell;
+			sourceTree = "<group>";
+		};
+		BF5F755421266908002F348F /* test_Vc */ = {
+			isa = PBXGroup;
+			children = (
+				BF5F755521266930002F348F /* testTableVC.h */,
+				BF5F755621266930002F348F /* testTableVC.m */,
+			);
+			path = test_Vc;
+			sourceTree = "<group>";
+		};
 		BFA9AC2921227BC300668F2F = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +171,8 @@
 		BFA9AC3421227BC300668F2F /* base */ = {
 			isa = PBXGroup;
 			children = (
+				BF5F755421266908002F348F /* test_Vc */,
+				BF5F754E2126541B002F348F /* test_cell */,
 				BFA9AC812125188F00668F2F /* Third party */,
 				BFA9AC6921227FD800668F2F /* baseTool */,
 				BFA9AC3521227BC300668F2F /* AppDelegate.h */,
@@ -362,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFA9AC4221227BC500668F2F /* LaunchScreen.storyboard in Resources */,
+				BF5F75532126544D002F348F /* testCellXib.xib in Resources */,
 				BFA9AC3F21227BC500668F2F /* Assets.xcassets in Resources */,
 				BFA9AC3D21227BC300668F2F /* Main.storyboard in Resources */,
 			);
@@ -431,8 +466,11 @@
 			files = (
 				BFA9AC852125188F00668F2F /* MBProgressHUD+MJ.m in Sources */,
 				BFA9AC6F2122803F00668F2F /* baseUiTableView.m in Sources */,
+				BF5F755721266930002F348F /* testTableVC.m in Sources */,
 				BFA9AC7A212297C700668F2F /* NSString+Add.m in Sources */,
+				BF5F75522126544D002F348F /* testCellXib.m in Sources */,
 				BFA9AC3A21227BC300668F2F /* ViewController.m in Sources */,
+				BF5F755A21266AB1002F348F /* BorrowingBill.m in Sources */,
 				BFA9AC4521227BC500668F2F /* main.m in Sources */,
 				BFA9AC752122805500668F2F /* basicVc.m in Sources */,
 				BFA9AC722122804B00668F2F /* baseCell.m in Sources */,
