@@ -49,11 +49,6 @@
     self.tableView.mj_header = self.header;
     tableView.emptyDataSetSource = self;
     tableView.emptyDataSetDelegate = self;
-    if (@available(iOS 11.0, *)) {
-        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;//UIScrollView也适用
-    }else {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
 }
 #pragma -mark<mj_header  头部>
 - (MJRefreshHeader *)header{
@@ -64,13 +59,7 @@
     return _header;
 }
 - (void)loadNewData{
-        [self performSelector:@selector(ttt) withObject:nil afterDelay:2.0];
-}
-- (void)ttt{
-    kWeakSelf(self);
-    [self.header endRefreshingWithCompletionBlock:^{
-        [weakself.tableView reloadData];
-    }];
+
 }
 #pragma -mark<mj_footer  头部>
 - (void)set_MJRefreshFooter{
@@ -301,10 +290,14 @@
         if(self.empty_type == NoNetworkConnection_empty_num){
             [self.header beginRefreshing];
         }
-        [self.tableView reloadData];
+        [self reload];
     }
 }
-    
+
+- (void)reload{
+    [self.tableView reloadData];
+}
+
 - (void)presentViewControllerToSystemSetupWithTitle:(NSString *)title WithMessage:(NSString *)message {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {

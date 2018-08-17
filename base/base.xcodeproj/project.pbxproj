@@ -27,6 +27,11 @@
 		BFA9AC7E21241DF200668F2F /* NetworkStateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9AC7D21241DF200668F2F /* NetworkStateTool.m */; };
 		BFA9AC802125126100668F2F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA9AC7F2125126100668F2F /* CoreTelephony.framework */; };
 		BFA9AC852125188F00668F2F /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9AC842125188F00668F2F /* MBProgressHUD+MJ.m */; };
+		BFE6201A2126764F005B8F88 /* baseUICollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE620192126764F005B8F88 /* baseUICollectionVC.m */; };
+		BFE6201D21267873005B8F88 /* testCoVc.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE6201C21267873005B8F88 /* testCoVc.m */; };
+		BFE62024212678BC005B8F88 /* testCoCellXib.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE62022212678BC005B8F88 /* testCoCellXib.m */; };
+		BFE62025212678BC005B8F88 /* testCoCellXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFE62023212678BC005B8F88 /* testCoCellXib.xib */; };
+		BFE620282126B211005B8F88 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE620262126B211005B8F88 /* ImageCell.m */; };
 		FE7729A27CEFF57F59AACCB0 /* libPods-base.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8EAEC488078379D62520D8E /* libPods-base.a */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +94,15 @@
 		BFA9AC7F2125126100668F2F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		BFA9AC832125188F00668F2F /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
 		BFA9AC842125188F00668F2F /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
+		BFE620182126764F005B8F88 /* baseUICollectionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = baseUICollectionVC.h; sourceTree = "<group>"; };
+		BFE620192126764F005B8F88 /* baseUICollectionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = baseUICollectionVC.m; sourceTree = "<group>"; };
+		BFE6201B21267873005B8F88 /* testCoVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testCoVc.h; sourceTree = "<group>"; };
+		BFE6201C21267873005B8F88 /* testCoVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testCoVc.m; sourceTree = "<group>"; };
+		BFE62021212678BC005B8F88 /* testCoCellXib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testCoCellXib.h; sourceTree = "<group>"; };
+		BFE62022212678BC005B8F88 /* testCoCellXib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testCoCellXib.m; sourceTree = "<group>"; };
+		BFE62023212678BC005B8F88 /* testCoCellXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = testCoCellXib.xib; sourceTree = "<group>"; };
+		BFE620262126B211005B8F88 /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
+		BFE620272126B211005B8F88 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
 		E8EAEC488078379D62520D8E /* libPods-base.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-base.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -136,6 +150,11 @@
 				BF5F75512126544D002F348F /* testCellXib.xib */,
 				BF5F755921266AB1002F348F /* BorrowingBill.h */,
 				BF5F755821266AB1002F348F /* BorrowingBill.m */,
+				BFE62021212678BC005B8F88 /* testCoCellXib.h */,
+				BFE62022212678BC005B8F88 /* testCoCellXib.m */,
+				BFE62023212678BC005B8F88 /* testCoCellXib.xib */,
+				BFE620272126B211005B8F88 /* ImageCell.h */,
+				BFE620262126B211005B8F88 /* ImageCell.m */,
 			);
 			path = test_cell;
 			sourceTree = "<group>";
@@ -145,6 +164,8 @@
 			children = (
 				BF5F755521266930002F348F /* testTableVC.h */,
 				BF5F755621266930002F348F /* testTableVC.m */,
+				BFE6201B21267873005B8F88 /* testCoVc.h */,
+				BFE6201C21267873005B8F88 /* testCoVc.m */,
 			);
 			path = test_Vc;
 			sourceTree = "<group>";
@@ -221,6 +242,7 @@
 		BFA9AC6921227FD800668F2F /* baseTool */ = {
 			isa = PBXGroup;
 			children = (
+				BFE6201721267629005B8F88 /* baseColle */,
 				BF5F755B21266DAA002F348F /* baseWebVc */,
 				BFA9AC7B21241DDE00668F2F /* Network state */,
 				BFA9AC6A21227FD800668F2F /* baseTableVc */,
@@ -292,6 +314,15 @@
 				BFA9AC842125188F00668F2F /* MBProgressHUD+MJ.m */,
 			);
 			path = "MBProgressHUD+MJ";
+			sourceTree = "<group>";
+		};
+		BFE6201721267629005B8F88 /* baseColle */ = {
+			isa = PBXGroup;
+			children = (
+				BFE620182126764F005B8F88 /* baseUICollectionVC.h */,
+				BFE620192126764F005B8F88 /* baseUICollectionVC.m */,
+			);
+			path = baseColle;
 			sourceTree = "<group>";
 		};
 		C63DBC767B6946A9FA1A096E /* Frameworks */ = {
@@ -411,6 +442,7 @@
 				BFA9AC4221227BC500668F2F /* LaunchScreen.storyboard in Resources */,
 				BF5F75532126544D002F348F /* testCellXib.xib in Resources */,
 				BFA9AC3F21227BC500668F2F /* Assets.xcassets in Resources */,
+				BFE62025212678BC005B8F88 /* testCoCellXib.xib in Resources */,
 				BFA9AC3D21227BC300668F2F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,12 +515,16 @@
 				BF5F755721266930002F348F /* testTableVC.m in Sources */,
 				BFA9AC7A212297C700668F2F /* NSString+Add.m in Sources */,
 				BF5F75522126544D002F348F /* testCellXib.m in Sources */,
+				BFE6201A2126764F005B8F88 /* baseUICollectionVC.m in Sources */,
 				BFA9AC3A21227BC300668F2F /* ViewController.m in Sources */,
 				BF5F755A21266AB1002F348F /* BorrowingBill.m in Sources */,
+				BFE62024212678BC005B8F88 /* testCoCellXib.m in Sources */,
+				BFE620282126B211005B8F88 /* ImageCell.m in Sources */,
 				BFA9AC4521227BC500668F2F /* main.m in Sources */,
 				BFA9AC752122805500668F2F /* basicVc.m in Sources */,
 				BFA9AC722122804B00668F2F /* baseCell.m in Sources */,
 				BFA9AC7E21241DF200668F2F /* NetworkStateTool.m in Sources */,
+				BFE6201D21267873005B8F88 /* testCoVc.m in Sources */,
 				BFA9AC3721227BC300668F2F /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

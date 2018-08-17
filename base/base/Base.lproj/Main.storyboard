@@ -28,7 +28,7 @@
         <!--Item 2-->
         <scene sceneID="KBL-J3-X5C">
             <objects>
-                <viewController id="UUa-Kt-nOx" sceneMemberID="viewController">
+                <viewController id="UUa-Kt-nOx" customClass="testCoVc" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GzB-qH-Gbj"/>
                         <viewControllerLayoutGuide type="bottom" id="G5l-UX-Jq3"/>
