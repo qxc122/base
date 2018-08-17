@@ -43,7 +43,11 @@
     [pro1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.webView);
         make.right.equalTo(self.webView);
-        make.top.equalTo(self.webView);
+        if (isPhoneX) {
+            make.top.equalTo(self.webView).offset(88);
+        } else {
+            make.top.equalTo(self.webView).offset(64);
+        }
         make.height.equalTo(@2);
     }];
     self.pro1 = pro1;
@@ -52,7 +56,7 @@
     //设置进度默认值，这个相当于百分比，范围在0~1之间，不可以设置最大最小值
     pro1.progress=0.0;
     //设置进度条上进度的颜色
-    pro1.progressTintColor= [UIColor redColor];
+    pro1.progressTintColor= [UIColor blueColor];
     
     [webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:nil];
     [webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
@@ -61,6 +65,7 @@
     self.url = @"https://blog.csdn.net/u011146511/article/details/78222009";
 #endif
 }
+
 - (void)setUrl:(id)url{
     _url = url;
     if (url) {

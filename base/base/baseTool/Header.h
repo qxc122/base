@@ -28,6 +28,7 @@ blue:((float)(rgbValue & 0xFF)) / 255.0 alpha:(a)]
 #define PROPORTION_WIDTH   SCREENWIDTH/375.0
 
 #define IPoneX (SCREENHEIGHT == 812)
+#define isPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 
 #ifdef DEBUG
 #define NSLog(...) NSLog(__VA_ARGS__)
