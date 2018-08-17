@@ -11,4 +11,8 @@ target 'base' do
     pod 'IQKeyboardManager'
     pod 'Reachability'
     pod 'MBProgressHUD'
+    pod 'SDCycleScrollView'
+    pod 'MJExtension'
+    pod 'AFNetworking'
+    pod 'OpenUDID'
 end
