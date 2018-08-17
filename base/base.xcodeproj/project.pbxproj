@@ -11,6 +11,7 @@
 		BF5F75532126544D002F348F /* testCellXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5F75512126544D002F348F /* testCellXib.xib */; };
 		BF5F755721266930002F348F /* testTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5F755621266930002F348F /* testTableVC.m */; };
 		BF5F755A21266AB1002F348F /* BorrowingBill.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5F755821266AB1002F348F /* BorrowingBill.m */; };
+		BF5F755E21266DAA002F348F /* baseWkVc.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5F755D21266DAA002F348F /* baseWkVc.m */; };
 		BFA9AC3721227BC300668F2F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9AC3621227BC300668F2F /* AppDelegate.m */; };
 		BFA9AC3A21227BC300668F2F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9AC3921227BC300668F2F /* ViewController.m */; };
 		BFA9AC3D21227BC300668F2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFA9AC3B21227BC300668F2F /* Main.storyboard */; };
@@ -56,6 +57,8 @@
 		BF5F755621266930002F348F /* testTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testTableVC.m; sourceTree = "<group>"; };
 		BF5F755821266AB1002F348F /* BorrowingBill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BorrowingBill.m; sourceTree = "<group>"; };
 		BF5F755921266AB1002F348F /* BorrowingBill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorrowingBill.h; sourceTree = "<group>"; };
+		BF5F755C21266DAA002F348F /* baseWkVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = baseWkVc.h; sourceTree = "<group>"; };
+		BF5F755D21266DAA002F348F /* baseWkVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = baseWkVc.m; sourceTree = "<group>"; };
 		BFA9AC3221227BC300668F2F /* base.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = base.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFA9AC3521227BC300668F2F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BFA9AC3621227BC300668F2F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -146,6 +149,15 @@
 			path = test_Vc;
 			sourceTree = "<group>";
 		};
+		BF5F755B21266DAA002F348F /* baseWebVc */ = {
+			isa = PBXGroup;
+			children = (
+				BF5F755C21266DAA002F348F /* baseWkVc.h */,
+				BF5F755D21266DAA002F348F /* baseWkVc.m */,
+			);
+			path = baseWebVc;
+			sourceTree = "<group>";
+		};
 		BFA9AC2921227BC300668F2F = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +221,7 @@
 		BFA9AC6921227FD800668F2F /* baseTool */ = {
 			isa = PBXGroup;
 			children = (
+				BF5F755B21266DAA002F348F /* baseWebVc */,
 				BFA9AC7B21241DDE00668F2F /* Network state */,
 				BFA9AC6A21227FD800668F2F /* baseTableVc */,
 				BFA9AC6C21227FD800668F2F /* baseVc */,
@@ -465,6 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFA9AC852125188F00668F2F /* MBProgressHUD+MJ.m in Sources */,
+				BF5F755E21266DAA002F348F /* baseWkVc.m in Sources */,
 				BFA9AC6F2122803F00668F2F /* baseUiTableView.m in Sources */,
 				BF5F755721266930002F348F /* testTableVC.m in Sources */,
 				BFA9AC7A212297C700668F2F /* NSString+Add.m in Sources */,
