@@ -8,6 +8,12 @@
 
 #import "AppDelegate.h"
 #import "NetworkStateTool.h"
+#ifdef DEBUG
+    #import "WSLFPS.h"
+    #import "WSLSuspendingView.h"
+#endif
+
+
 
 @interface AppDelegate ()
 @property (strong, nonatomic) NetworkStateTool *netStaue;
@@ -19,6 +25,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.netStaue = [NetworkStateTool sharedInstance];
+#ifdef DEBUG
+    WSLSuspendingView * suspendingView = [WSLSuspendingView sharedSuspendingView];
+    
+    WSLFPS * fps = [WSLFPS sharedFPSIndicator];
+    [fps startMonitoring];
+    fps.FPSBlock = ^(float fps) {
+        suspendingView.fpsLabel.text = [NSString stringWithFormat:@"FPS = %.2f",fps];
+    };
+#endif
     return YES;
 }
 

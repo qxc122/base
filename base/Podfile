@@ -15,4 +15,7 @@ target 'base' do
     pod 'MJExtension'
     pod 'AFNetworking'
     pod 'OpenUDID'
+    
+    pod 'JXCategoryView'
+#    pod 'YYFPSLabel'
 end

@@ -9,6 +9,10 @@
 #import "testTableVC.h"
 #import "testCellXib.h"
 #import "BorrowingBill.h"
+
+#import "TitleViewController.h"
+#import "testCoVc.h"
+#import "baseWkVc.h"
 @interface testTableVC ()
 
 @end
@@ -21,7 +25,27 @@
     
     self.registerCells = @[@"testCellXib",@"BorrowingBill"];
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        TitleViewController *vc = [TitleViewController new];
+        JXCategoryTitleView *titleCategoryView = (JXCategoryTitleView *)vc.categoryView;
+        titleCategoryView.titleColorGradientEnabled = YES;
+        titleCategoryView.indicatorLineViewShowEnabled = NO;
+        titleCategoryView.indicatorLineViewShowEnabled = YES;
+        titleCategoryView.indicatorLineWidth = 20;
+        titleCategoryView.lineStyle = JXCategoryLineStyle_IQIYI;
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if(indexPath.row == 1){
+        testTableVC *vc = [testTableVC new];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if(indexPath.row == 2){
+        testCoVc *vc = [testCoVc new];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if(indexPath.row == 3){
+        baseWkVc *vc = [baseWkVc new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.section == 0){
         testCellXib *cell = [tableView dequeueReusableCellWithIdentifier:@"testCellXib" forIndexPath:indexPath];
