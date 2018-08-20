@@ -17,5 +17,6 @@ target 'base' do
     pod 'OpenUDID'
     
     pod 'JXCategoryView'
-#    pod 'YYFPSLabel'
+    pod 'YCPopover'
+    pod 'YBPopupMenu'
 end

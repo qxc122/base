@@ -9,6 +9,9 @@
 #ifndef Header_h
 #define Header_h
 
+
+#define FPS_TEST   //定义了则打开FPS监控，注释就没有FPS监控
+
 #define PingFangSC_Regular(F) [UIFont systemFontOfSize:F]
 #define PingFangSC_Medium(F) [UIFont boldSystemFontOfSize:F]
 

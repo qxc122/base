@@ -36,6 +36,8 @@
 		BFE620302126C19E005B8F88 /* TitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE6202F2126C19E005B8F88 /* TitleViewController.m */; };
 		BFE620362126D38A005B8F88 /* WSLFPS.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE620332126D389005B8F88 /* WSLFPS.m */; };
 		BFE620372126D38A005B8F88 /* WSLSuspendingView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE620352126D389005B8F88 /* WSLSuspendingView.m */; };
+		BFE6203B212A9D49005B8F88 /* testPoPvc.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE62039212A9D49005B8F88 /* testPoPvc.m */; };
+		BFE6203C212A9D49005B8F88 /* testPoPvc.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFE6203A212A9D49005B8F88 /* testPoPvc.xib */; };
 		FE7729A27CEFF57F59AACCB0 /* libPods-base.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8EAEC488078379D62520D8E /* libPods-base.a */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +117,9 @@
 		BFE620332126D389005B8F88 /* WSLFPS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSLFPS.m; sourceTree = "<group>"; };
 		BFE620342126D389005B8F88 /* WSLSuspendingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSLSuspendingView.h; sourceTree = "<group>"; };
 		BFE620352126D389005B8F88 /* WSLSuspendingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSLSuspendingView.m; sourceTree = "<group>"; };
+		BFE62038212A9D49005B8F88 /* testPoPvc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testPoPvc.h; sourceTree = "<group>"; };
+		BFE62039212A9D49005B8F88 /* testPoPvc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testPoPvc.m; sourceTree = "<group>"; };
+		BFE6203A212A9D49005B8F88 /* testPoPvc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = testPoPvc.xib; sourceTree = "<group>"; };
 		E8EAEC488078379D62520D8E /* libPods-base.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-base.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -178,6 +183,9 @@
 				BF5F755621266930002F348F /* testTableVC.m */,
 				BFE6201B21267873005B8F88 /* testCoVc.h */,
 				BFE6201C21267873005B8F88 /* testCoVc.m */,
+				BFE62038212A9D49005B8F88 /* testPoPvc.h */,
+				BFE62039212A9D49005B8F88 /* testPoPvc.m */,
+				BFE6203A212A9D49005B8F88 /* testPoPvc.xib */,
 			);
 			path = test_Vc;
 			sourceTree = "<group>";
@@ -487,6 +495,7 @@
 				BF5F75532126544D002F348F /* testCellXib.xib in Resources */,
 				BFA9AC3F21227BC500668F2F /* Assets.xcassets in Resources */,
 				BFE62025212678BC005B8F88 /* testCoCellXib.xib in Resources */,
+				BFE6203C212A9D49005B8F88 /* testPoPvc.xib in Resources */,
 				BFA9AC3D21227BC300668F2F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -559,6 +568,7 @@
 				BF5F755E21266DAA002F348F /* baseWkVc.m in Sources */,
 				BFA9AC6F2122803F00668F2F /* baseUiTableView.m in Sources */,
 				BF5F755721266930002F348F /* testTableVC.m in Sources */,
+				BFE6203B212A9D49005B8F88 /* testPoPvc.m in Sources */,
 				BFA9AC7A212297C700668F2F /* NSString+Add.m in Sources */,
 				BF5F75522126544D002F348F /* testCellXib.m in Sources */,
 				BFE6201A2126764F005B8F88 /* baseUICollectionVC.m in Sources */,

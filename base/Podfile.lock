@@ -21,7 +21,7 @@ PODS:
   - Masonry (1.1.0)
   - MBProgressHUD (1.1.0)
   - MJExtension (3.0.15.1)
-  - MJRefresh (3.1.15.3)
+  - MJRefresh (3.1.15.6)
   - OpenUDID (1.0.0)
   - Reachability (3.2)
   - SDCycleScrollView (1.75):
@@ -30,6 +30,8 @@ PODS:
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
   - "UITableView+FDTemplateLayoutCell (1.6)"
+  - YBPopupMenu (1.1.2)
+  - YCPopover (1.2.0)
 
 DEPENDENCIES:
   - AFNetworking
@@ -45,6 +47,8 @@ DEPENDENCIES:
   - Reachability
   - SDCycleScrollView
   - "UITableView+FDTemplateLayoutCell"
+  - YBPopupMenu
+  - YCPopover
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -62,6 +66,8 @@ SPEC REPOS:
     - SDCycleScrollView
     - SDWebImage
     - "UITableView+FDTemplateLayoutCell"
+    - YBPopupMenu
+    - YCPopover
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -72,13 +78,15 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
-  MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  MJRefresh: 0efa19656679d70a0f47cbe76e56c2271fe53a97
   OpenUDID: e7cb6984c7304906ad20f3a36bf087b025896b6b
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
+  YBPopupMenu: 6efb286385d95ba5f97c58b8464ec873645e8764
+  YCPopover: a11e06b685e9cddaa10e8f1bb3c1ba5bb52d719e
 
-PODFILE CHECKSUM: a8c40cbfb6c78264838debbd57c90414841da005
+PODFILE CHECKSUM: e75dde2fc62ef1b8b8cd00a3b51a5572bd40f751
 
 COCOAPODS: 1.5.3
