@@ -40,6 +40,8 @@
 		BFE6203C212A9D49005B8F88 /* testPoPvc.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFE6203A212A9D49005B8F88 /* testPoPvc.xib */; };
 		BFE6203F212BE073005B8F88 /* mainTableVc.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE6203D212BE072005B8F88 /* mainTableVc.m */; };
 		BFE62042212BE39A005B8F88 /* UIColor+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE62040212BE399005B8F88 /* UIColor+Add.m */; };
+		BFE6204B212C0911005B8F88 /* NSUserDefaults+storage.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE6204A212C0911005B8F88 /* NSUserDefaults+storage.m */; };
+		BFE6204E212C0D92005B8F88 /* NSDictionary+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE6204C212C0D92005B8F88 /* NSDictionary+Add.m */; };
 		FE7729A27CEFF57F59AACCB0 /* libPods-base.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8EAEC488078379D62520D8E /* libPods-base.a */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +128,12 @@
 		BFE6203E212BE072005B8F88 /* mainTableVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainTableVc.h; sourceTree = "<group>"; };
 		BFE62040212BE399005B8F88 /* UIColor+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Add.m"; sourceTree = "<group>"; };
 		BFE62041212BE399005B8F88 /* UIColor+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Add.h"; sourceTree = "<group>"; };
+		BFE62047212C07CD005B8F88 /* single.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = single.h; sourceTree = "<group>"; };
+		BFE62048212C087E005B8F88 /* MACRO_URL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MACRO_URL.h; sourceTree = "<group>"; };
+		BFE62049212C0910005B8F88 /* NSUserDefaults+storage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+storage.h"; sourceTree = "<group>"; };
+		BFE6204A212C0911005B8F88 /* NSUserDefaults+storage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+storage.m"; sourceTree = "<group>"; };
+		BFE6204C212C0D92005B8F88 /* NSDictionary+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Add.m"; sourceTree = "<group>"; };
+		BFE6204D212C0D92005B8F88 /* NSDictionary+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Add.h"; sourceTree = "<group>"; };
 		E8EAEC488078379D62520D8E /* libPods-base.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-base.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -273,6 +281,7 @@
 				BFE6203E212BE072005B8F88 /* mainTableVc.h */,
 				BFE6203D212BE072005B8F88 /* mainTableVc.m */,
 				BFA9AC7621228F9E00668F2F /* Header.h */,
+				BFE62046212C07B9005B8F88 /* 常用宏 */,
 				BFA9AC7B21241DDE00668F2F /* ToolHelper */,
 				BFA9AC77212297C600668F2F /* category */,
 				BFE6202A2126C09B005B8F88 /* Paging controller */,
@@ -319,6 +328,10 @@
 				BFE62040212BE399005B8F88 /* UIColor+Add.m */,
 				BFA9AC78212297C600668F2F /* NSString+Add.h */,
 				BFA9AC79212297C600668F2F /* NSString+Add.m */,
+				BFE62049212C0910005B8F88 /* NSUserDefaults+storage.h */,
+				BFE6204A212C0911005B8F88 /* NSUserDefaults+storage.m */,
+				BFE6204D212C0D92005B8F88 /* NSDictionary+Add.h */,
+				BFE6204C212C0D92005B8F88 /* NSDictionary+Add.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -385,6 +398,15 @@
 				BFE620352126D389005B8F88 /* WSLSuspendingView.m */,
 			);
 			path = FPS;
+			sourceTree = "<group>";
+		};
+		BFE62046212C07B9005B8F88 /* 常用宏 */ = {
+			isa = PBXGroup;
+			children = (
+				BFE62047212C07CD005B8F88 /* single.h */,
+				BFE62048212C087E005B8F88 /* MACRO_URL.h */,
+			);
+			path = "常用宏";
 			sourceTree = "<group>";
 		};
 		C63DBC767B6946A9FA1A096E /* Frameworks */ = {
@@ -580,6 +602,7 @@
 				BFA9AC6F2122803F00668F2F /* baseUiTableView.m in Sources */,
 				BF5F755721266930002F348F /* testTableVC.m in Sources */,
 				BFE6203B212A9D49005B8F88 /* testPoPvc.m in Sources */,
+				BFE6204E212C0D92005B8F88 /* NSDictionary+Add.m in Sources */,
 				BFA9AC7A212297C700668F2F /* NSString+Add.m in Sources */,
 				BF5F75522126544D002F348F /* testCellXib.m in Sources */,
 				BFE6201A2126764F005B8F88 /* baseUICollectionVC.m in Sources */,
@@ -592,6 +615,7 @@
 				BFE6203F212BE073005B8F88 /* mainTableVc.m in Sources */,
 				BFA9AC752122805500668F2F /* basicVc.m in Sources */,
 				BFA9AC722122804B00668F2F /* baseCell.m in Sources */,
+				BFE6204B212C0911005B8F88 /* NSUserDefaults+storage.m in Sources */,
 				BFA9AC7E21241DF200668F2F /* ToolHelper.m in Sources */,
 				BFE6201D21267873005B8F88 /* testCoVc.m in Sources */,
 				BFA9AC3721227BC300668F2F /* AppDelegate.m in Sources */,

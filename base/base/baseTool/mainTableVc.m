@@ -48,7 +48,6 @@
     UIImage * selectImage1 = [[UIImage imageNamed:@"right"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     navhomePagevc.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"首页" image:normalImage1 selectedImage:selectImage1];
     
-
     
     UIImage * normalImage2 = [[UIImage imageNamed:@"right"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImage * selectImage2 = [[UIImage imageNamed:@"right"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
