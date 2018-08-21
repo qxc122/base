@@ -6,25 +6,17 @@
 //  Copyright © 2018年 开发者最好的. All rights reserved.
 //
 
-#import "NetworkStateTool.h"
+#import "ToolHelper.h"
 #import "Header.h"
 
 
-@interface NetworkStateTool ()
+@interface ToolHelper ()
 @property (strong, nonatomic) Reachability *reachability;
 @end
 
 
-@implementation NetworkStateTool
-+ (NetworkStateTool *)sharedInstance
-{
-    static NetworkStateTool *instance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        instance = [[self alloc] init];
-    });
-    return instance;
-}
+@implementation ToolHelper
+singleM(ToolHelper);
 - (instancetype)init
 {
     self = [super init];

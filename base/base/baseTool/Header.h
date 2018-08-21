@@ -9,7 +9,7 @@
 #ifndef Header_h
 #define Header_h
 
-
+#import "UIColor+Add.h"
 
 #define FPS_TEST   //定义了则打开FPS监控，注释就没有FPS监控
 
@@ -60,6 +60,34 @@ blue:((float)(rgbValue & 0xFF)) / 255.0 alpha:(a)]
 #define STR_Loadfailure @"\n加载失败，请重试"
 #define STR_nodata   @"没有数据"
 
-#import "UIColor+Add.h"
+
+#define singleH(name) +(instancetype)share##name;
+#define singleM(name) static id _instance;\
++(instancetype)allocWithZone:(struct _NSZone *)zone\
+{\
+static name * instance = nil ;\
+static dispatch_once_t onceToken;\
+dispatch_once(&onceToken, ^{\
+if(instance == nil){\
+_instance = [super allocWithZone:zone];\
+NSLog(@"创建了单栗：%@", NSStringFromClass([name class]));\
+}\
+});\
+return _instance;\
+}\
+\
++(instancetype)share##name\
+{\
+return [[self alloc]init];\
+}\
+-(id)copyWithZone:(NSZone *)zone\
+{\
+return _instance;\
+}\
+\
+-(id)mutableCopyWithZone:(NSZone *)zone\
+{\
+return _instance;\
+}
 
 #endif /* Header_h */

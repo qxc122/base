@@ -24,7 +24,7 @@
 		BFA9AC722122804B00668F2F /* baseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9AC702122804B00668F2F /* baseCell.m */; };
 		BFA9AC752122805500668F2F /* basicVc.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9AC732122805500668F2F /* basicVc.m */; };
 		BFA9AC7A212297C700668F2F /* NSString+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9AC79212297C600668F2F /* NSString+Add.m */; };
-		BFA9AC7E21241DF200668F2F /* NetworkStateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9AC7D21241DF200668F2F /* NetworkStateTool.m */; };
+		BFA9AC7E21241DF200668F2F /* ToolHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9AC7D21241DF200668F2F /* ToolHelper.m */; };
 		BFA9AC802125126100668F2F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA9AC7F2125126100668F2F /* CoreTelephony.framework */; };
 		BFA9AC852125188F00668F2F /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9AC842125188F00668F2F /* MBProgressHUD+MJ.m */; };
 		BFE6201A2126764F005B8F88 /* baseUICollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE620192126764F005B8F88 /* baseUICollectionVC.m */; };
@@ -97,8 +97,8 @@
 		BFA9AC7621228F9E00668F2F /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		BFA9AC78212297C600668F2F /* NSString+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Add.h"; sourceTree = "<group>"; };
 		BFA9AC79212297C600668F2F /* NSString+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Add.m"; sourceTree = "<group>"; };
-		BFA9AC7C21241DF200668F2F /* NetworkStateTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkStateTool.h; sourceTree = "<group>"; };
-		BFA9AC7D21241DF200668F2F /* NetworkStateTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkStateTool.m; sourceTree = "<group>"; };
+		BFA9AC7C21241DF200668F2F /* ToolHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolHelper.h; sourceTree = "<group>"; };
+		BFA9AC7D21241DF200668F2F /* ToolHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolHelper.m; sourceTree = "<group>"; };
 		BFA9AC7F2125126100668F2F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		BFA9AC832125188F00668F2F /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
 		BFA9AC842125188F00668F2F /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
@@ -272,14 +272,14 @@
 			children = (
 				BFE6203E212BE072005B8F88 /* mainTableVc.h */,
 				BFE6203D212BE072005B8F88 /* mainTableVc.m */,
+				BFA9AC7621228F9E00668F2F /* Header.h */,
+				BFA9AC7B21241DDE00668F2F /* ToolHelper */,
 				BFA9AC77212297C600668F2F /* category */,
 				BFE6202A2126C09B005B8F88 /* Paging controller */,
 				BFE6201721267629005B8F88 /* baseColle */,
 				BF5F755B21266DAA002F348F /* baseWebVc */,
-				BFA9AC7B21241DDE00668F2F /* Network state */,
 				BFA9AC6A21227FD800668F2F /* baseTableVc */,
 				BFA9AC6C21227FD800668F2F /* baseVc */,
-				BFA9AC7621228F9E00668F2F /* Header.h */,
 			);
 			path = baseTool;
 			sourceTree = "<group>";
@@ -323,13 +323,13 @@
 			path = category;
 			sourceTree = "<group>";
 		};
-		BFA9AC7B21241DDE00668F2F /* Network state */ = {
+		BFA9AC7B21241DDE00668F2F /* ToolHelper */ = {
 			isa = PBXGroup;
 			children = (
-				BFA9AC7C21241DF200668F2F /* NetworkStateTool.h */,
-				BFA9AC7D21241DF200668F2F /* NetworkStateTool.m */,
+				BFA9AC7C21241DF200668F2F /* ToolHelper.h */,
+				BFA9AC7D21241DF200668F2F /* ToolHelper.m */,
 			);
-			path = "Network state";
+			path = ToolHelper;
 			sourceTree = "<group>";
 		};
 		BFA9AC812125188F00668F2F /* Third party */ = {
@@ -592,7 +592,7 @@
 				BFE6203F212BE073005B8F88 /* mainTableVc.m in Sources */,
 				BFA9AC752122805500668F2F /* basicVc.m in Sources */,
 				BFA9AC722122804B00668F2F /* baseCell.m in Sources */,
-				BFA9AC7E21241DF200668F2F /* NetworkStateTool.m in Sources */,
+				BFA9AC7E21241DF200668F2F /* ToolHelper.m in Sources */,
 				BFE6201D21267873005B8F88 /* testCoVc.m in Sources */,
 				BFA9AC3721227BC300668F2F /* AppDelegate.m in Sources */,
 				BFE620372126D38A005B8F88 /* WSLSuspendingView.m in Sources */,

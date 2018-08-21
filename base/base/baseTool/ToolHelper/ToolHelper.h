@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "Reachability.h"
-
-@interface NetworkStateTool : NSObject
-+ (NetworkStateTool *)sharedInstance;
+#import "Header.h"
+@interface ToolHelper : NSObject
+singleH(ToolHelper);
 -(BOOL)isReachable;
 @end

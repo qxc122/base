@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "NetworkStateTool.h"
+#import "ToolHelper.h"
 #import "Header.h"
 #import "mainTableVc.h"
 #ifdef DEBUG
@@ -19,7 +19,7 @@
 
 
 @interface AppDelegate ()
-@property (strong, nonatomic) NetworkStateTool *netStaue;
+@property (strong, nonatomic) ToolHelper *netStaue;
 @end
 
 @implementation AppDelegate
@@ -27,7 +27,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    self.netStaue = [NetworkStateTool sharedInstance];
+    self.netStaue = [ToolHelper shareToolHelper];
 #ifdef DEBUG
      #ifdef FPS_TEST
         WSLSuspendingView * suspendingView = [WSLSuspendingView sharedSuspendingView];

@@ -12,7 +12,7 @@
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "Header.h"
 #import "NSString+Add.h"
-#import "NetworkStateTool.h"
+#import "ToolHelper.h"
 #import <CoreTelephony/CTCellularData.h>
 
 @interface baseUiTableView ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
@@ -195,7 +195,7 @@
   
 #pragma --<空白页处理>
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
-    if([[NetworkStateTool sharedInstance] isReachable]){
+    if([[ToolHelper shareToolHelper] isReachable]){
         if (self.empty_type == succes_empty_num) {
             return [UIImage imageNamed:PIC_nodata];
         } else  {
@@ -208,7 +208,7 @@
 }
     
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
-    if([[NetworkStateTool sharedInstance] isReachable]){
+    if([[ToolHelper shareToolHelper] isReachable]){
         if (self.empty_type == succes_empty_num) {
             NSMutableAttributedString *all = [[NSMutableAttributedString alloc]init];
             NSAttributedString *title = [[NSString stringWithFormat:@"\n%@",self.NodataTitle&&self.NodataTitle.length?self.NodataTitle:STR_nodata] CreatMutableAttributedStringWithFont:PingFangSC_Regular(14) Color:ColorWithHex(0x000000, 0.4) LineSpacing:0 Alignment:NSTextAlignmentCenter BreakMode:NSLineBreakByTruncatingTail firstLineHeadIndent:0 headIndent:0 paragraphSpacing:0 WordSpace:0];
@@ -268,7 +268,7 @@
     
 //空白页点击事件
 - (void)emptyDataSetDidTapView:(UIScrollView *)scrollView {
-    if([[NetworkStateTool sharedInstance] isReachable]){
+    if([[ToolHelper shareToolHelper] isReachable]){
         if (self.empty_type == fail_empty_num && !self.header.isRefreshing) {
             [self.header beginRefreshing];
             [self.tableView reloadData];

@@ -9,7 +9,7 @@
 #import "baseUICollectionVC.h"
 #import "UIScrollView+EmptyDataSet.h"
 #import "NSString+Add.h"
-#import "NetworkStateTool.h"
+#import "ToolHelper.h"
 #import <CoreTelephony/CTCellularData.h>
 
 @interface baseUICollectionVC ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
