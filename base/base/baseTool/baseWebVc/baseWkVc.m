@@ -100,7 +100,8 @@
         }
     } else if (object == self.webView && [keyPath isEqualToString:@"title"] ) {
         if (self.webView.title.length) {
-            self.title = self.webView.title;
+//            self.title = self.webView.title;
+            [self.navigationItem setTitle:self.webView.title];
         }
     }else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];

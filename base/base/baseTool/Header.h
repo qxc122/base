@@ -10,7 +10,16 @@
 #define Header_h
 
 
+
 #define FPS_TEST   //定义了则打开FPS监控，注释就没有FPS监控
+
+// app版本
+#define APP_VERSION [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
+// app build版本
+#define APP_BUILD [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
+// 手机系统的版本
+#define PHONEVERSION [[UIDevice currentDevice] systemVersion]
+
 
 #define PingFangSC_Regular(F) [UIFont systemFontOfSize:F]
 #define PingFangSC_Medium(F) [UIFont boldSystemFontOfSize:F]
@@ -51,5 +60,6 @@ blue:((float)(rgbValue & 0xFF)) / 255.0 alpha:(a)]
 #define STR_Loadfailure @"\n加载失败，请重试"
 #define STR_nodata   @"没有数据"
 
+#import "UIColor+Add.h"
 
 #endif /* Header_h */

@@ -17,14 +17,40 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self customBackButton];
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    UIView *back = [UIView new];
+    back.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:back];
+    [back mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view);
+        make.right.equalTo(self.view);
+        make.top.equalTo(self.view);
+        make.bottom.equalTo(self.view);
+    }];
 }
-
-
+- (void)customBackButton
+{
+    UIImage* image = [[UIImage imageNamed:@"返回"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem* leftBarutton = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(popSelf)];
+    self.navigationItem.leftBarButtonItem = leftBarutton;
+}
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self hideBottomBarWhenPush];
+    }
+    return self;
+}
+- (void)hideBottomBarWhenPush
+{
+    self.hidesBottomBarWhenPushed = YES;
+}
 - (void)popSelf{
     [self.navigationController popViewControllerAnimated:YES];
 }
-
 
 - (void)OPenVc:(basicVc *)vc{
     [self.navigationController pushViewController:vc animated:YES];

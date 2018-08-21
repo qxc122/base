@@ -38,6 +38,8 @@
 		BFE620372126D38A005B8F88 /* WSLSuspendingView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE620352126D389005B8F88 /* WSLSuspendingView.m */; };
 		BFE6203B212A9D49005B8F88 /* testPoPvc.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE62039212A9D49005B8F88 /* testPoPvc.m */; };
 		BFE6203C212A9D49005B8F88 /* testPoPvc.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFE6203A212A9D49005B8F88 /* testPoPvc.xib */; };
+		BFE6203F212BE073005B8F88 /* mainTableVc.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE6203D212BE072005B8F88 /* mainTableVc.m */; };
+		BFE62042212BE39A005B8F88 /* UIColor+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE62040212BE399005B8F88 /* UIColor+Add.m */; };
 		FE7729A27CEFF57F59AACCB0 /* libPods-base.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8EAEC488078379D62520D8E /* libPods-base.a */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +122,10 @@
 		BFE62038212A9D49005B8F88 /* testPoPvc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testPoPvc.h; sourceTree = "<group>"; };
 		BFE62039212A9D49005B8F88 /* testPoPvc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testPoPvc.m; sourceTree = "<group>"; };
 		BFE6203A212A9D49005B8F88 /* testPoPvc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = testPoPvc.xib; sourceTree = "<group>"; };
+		BFE6203D212BE072005B8F88 /* mainTableVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainTableVc.m; sourceTree = "<group>"; };
+		BFE6203E212BE072005B8F88 /* mainTableVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainTableVc.h; sourceTree = "<group>"; };
+		BFE62040212BE399005B8F88 /* UIColor+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Add.m"; sourceTree = "<group>"; };
+		BFE62041212BE399005B8F88 /* UIColor+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Add.h"; sourceTree = "<group>"; };
 		E8EAEC488078379D62520D8E /* libPods-base.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-base.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -264,6 +270,9 @@
 		BFA9AC6921227FD800668F2F /* baseTool */ = {
 			isa = PBXGroup;
 			children = (
+				BFE6203E212BE072005B8F88 /* mainTableVc.h */,
+				BFE6203D212BE072005B8F88 /* mainTableVc.m */,
+				BFA9AC77212297C600668F2F /* category */,
 				BFE6202A2126C09B005B8F88 /* Paging controller */,
 				BFE6201721267629005B8F88 /* baseColle */,
 				BF5F755B21266DAA002F348F /* baseWebVc */,
@@ -278,7 +287,6 @@
 		BFA9AC6A21227FD800668F2F /* baseTableVc */ = {
 			isa = PBXGroup;
 			children = (
-				BFA9AC77212297C600668F2F /* category */,
 				BFA9AC6D2122803E00668F2F /* baseUiTableView.h */,
 				BFA9AC6E2122803E00668F2F /* baseUiTableView.m */,
 				BFA9AC6B21227FD800668F2F /* baseCell */,
@@ -307,6 +315,8 @@
 		BFA9AC77212297C600668F2F /* category */ = {
 			isa = PBXGroup;
 			children = (
+				BFE62041212BE399005B8F88 /* UIColor+Add.h */,
+				BFE62040212BE399005B8F88 /* UIColor+Add.m */,
 				BFA9AC78212297C600668F2F /* NSString+Add.h */,
 				BFA9AC79212297C600668F2F /* NSString+Add.m */,
 			);
@@ -563,6 +573,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFE620302126C19E005B8F88 /* TitleViewController.m in Sources */,
+				BFE62042212BE39A005B8F88 /* UIColor+Add.m in Sources */,
 				BFA9AC852125188F00668F2F /* MBProgressHUD+MJ.m in Sources */,
 				BFE6202D2126C09B005B8F88 /* BasePageVc.m in Sources */,
 				BF5F755E21266DAA002F348F /* baseWkVc.m in Sources */,
@@ -578,6 +589,7 @@
 				BFE62024212678BC005B8F88 /* testCoCellXib.m in Sources */,
 				BFE620282126B211005B8F88 /* ImageCell.m in Sources */,
 				BFA9AC4521227BC500668F2F /* main.m in Sources */,
+				BFE6203F212BE073005B8F88 /* mainTableVc.m in Sources */,
 				BFA9AC752122805500668F2F /* basicVc.m in Sources */,
 				BFA9AC722122804B00668F2F /* baseCell.m in Sources */,
 				BFA9AC7E21241DF200668F2F /* NetworkStateTool.m in Sources */,
