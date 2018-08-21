@@ -43,11 +43,12 @@
     [pro1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.webView);
         make.right.equalTo(self.webView);
-        if (isPhoneX) {
-            make.top.equalTo(self.webView).offset(88);
-        } else {
-            make.top.equalTo(self.webView).offset(64);
-        }
+        make.top.equalTo(self.webView);
+//        if (isPhoneX) {
+//            make.top.equalTo(self.webView).offset(88);
+//        } else {
+//            make.top.equalTo(self.webView).offset(64);
+//        }
         make.height.equalTo(@2);
     }];
     self.pro1 = pro1;

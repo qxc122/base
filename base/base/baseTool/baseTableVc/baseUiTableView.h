@@ -12,8 +12,8 @@
 
 typedef NS_ENUM(NSInteger, empty_num)
 {
-    succes_empty_num ,   //加载成功
     fail_empty_num , //加载失败
+    succes_empty_num ,   //加载成功
     NoNetworkConnection_empty_num ,   //无网络连接
 };
 

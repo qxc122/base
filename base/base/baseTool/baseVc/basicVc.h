@@ -10,6 +10,7 @@
 #import "MBProgressHUD+MJ.h"
 #import "Header.h"
 #import "Masonry.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
 @interface basicVc : UIViewController
 @property (nonatomic,strong) NSArray *willToBeRemovedVcs; //在改控制被打开时候，改数组中的控制器类型将被移除
 - (void)popSelf;

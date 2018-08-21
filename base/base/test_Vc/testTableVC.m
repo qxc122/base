@@ -28,14 +28,13 @@
     self.title = @"首页";
     self.registerCells = @[@"testCellXib",@"BorrowingBill"];
     
-    
     UIButton *btn = [UIButton new];
     [btn setTitle:@"好的" forState:UIControlStateNormal];
     self.btn = btn;
     
     UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc]initWithCustomView:btn];
     self.navigationItem.rightBarButtonItem = rightBtn;
-
+//    self.fd_prefersNavigationBarHidden = YES;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {

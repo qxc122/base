@@ -31,6 +31,12 @@
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     [[NSNotificationCenter defaultCenter]addObserver:self
                                             selector:@selector(networkStateChange) name:kReachabilityChangedNotification object:nil];
+    
+//    if (@available(iOS 11.0, *)) {
+//        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;//UIScrollView也适用
+//    }else {
+//        self.automaticallyAdjustsScrollViewInsets = NO;
+//    }
 }
 - (void)setTableView{
     UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectZero style:self.style];
@@ -59,7 +65,12 @@
     return _header;
 }
 - (void)loadNewData{
-
+    [self performSelector:@selector(endload) withObject:nil afterDelay:2.0];
+}
+- (void)endload{
+    self.empty_type = succes_empty_num;
+    [self.header endRefreshing];
+    [self.tableView reloadData];
 }
 #pragma -mark<mj_footer  头部>
 - (void)set_MJRefreshFooter{
