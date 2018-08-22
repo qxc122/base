@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="259" height="182"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Nonetwork" translatesAutoresizingMaskIntoConstraints="NO" id="rG9-zw-K2Y">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nodata.png" translatesAutoresizingMaskIntoConstraints="NO" id="rG9-zw-K2Y">
                         <rect key="frame" x="20" y="20" width="117" height="142"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="3kN-yr-1Cj"/>
@@ -47,6 +47,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="Nonetwork" width="100" height="100"/>
+        <image name="nodata.png" width="100" height="100"/>
     </resources>
 </document>

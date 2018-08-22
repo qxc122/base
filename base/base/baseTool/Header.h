@@ -10,6 +10,7 @@
 #define Header_h
 
 #import "UIColor+Add.h"
+#import "PNG_MACRO.h"
 
 #define FPS_TEST   //定义了则打开FPS监控，注释就没有FPS监控
 

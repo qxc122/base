@@ -28,7 +28,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nodata" translatesAutoresizingMaskIntoConstraints="NO" id="UfB-6q-sdO">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nodata.png" translatesAutoresizingMaskIntoConstraints="NO" id="UfB-6q-sdO">
                         <rect key="frame" x="141.5" y="128" width="100" height="100"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="100" id="I1v-97-dc9"/>
@@ -58,6 +58,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="nodata" width="100" height="100"/>
+        <image name="nodata.png" width="100" height="100"/>
     </resources>
 </document>
