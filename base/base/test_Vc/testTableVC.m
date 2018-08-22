@@ -33,8 +33,12 @@
     self.btn = btn;
     
     UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc]initWithCustomView:btn];
+    rightBtn.tintColor = [UIColor yellowColor];
     self.navigationItem.rightBarButtonItem = rightBtn;
+    
 //    self.fd_prefersNavigationBarHidden = YES;
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"好的" style:UIBarButtonItemStylePlain target:nil action:nil];
+//    self.navigationItem.rightBarButtonItem.tintColor = [UIColor yellowColor];
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
@@ -77,11 +81,9 @@
         }
     } else {
         if(indexPath.row == 0){
-            [YBPopupMenu showRelyOnView:self.btn titles:@[@"111",@"222",@"333",@"444",@"555",@"666",@"777",@"888"] icons:nil menuWidth:100 otherSettings:^(YBPopupMenu *popupMenu) {
-                popupMenu.priorityDirection = YBPopupMenuPriorityDirectionLeft;
-                popupMenu.borderWidth = 1;
-                popupMenu.borderColor = [UIColor redColor];
-            }];
+#define TITLES @[@"修改", @"删除", @"扫一扫",@"付款"]
+#define ICONS  @[@"right",@"right",@"right",@"right"]
+            [YBPopupMenu showRelyOnView:self.btn titles:TITLES icons:ICONS menuWidth:120 delegate:nil];
         }
     }
 }
