@@ -9,6 +9,7 @@
 #import "testTableVC.h"
 #import "testCellXib.h"
 #import "BorrowingBill.h"
+#import "ToolHelper.h"
 
 #import "TitleViewController.h"
 #import "testCoVc.h"
@@ -31,14 +32,21 @@
     UIButton *btn = [UIButton new];
     [btn setTitle:@"好的" forState:UIControlStateNormal];
     self.btn = btn;
-    
+    [btn addTarget:self action:@selector(load) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc]initWithCustomView:btn];
-    rightBtn.tintColor = [UIColor yellowColor];
     self.navigationItem.rightBarButtonItem = rightBtn;
     
 //    self.fd_prefersNavigationBarHidden = YES;
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"好的" style:UIBarButtonItemStylePlain target:nil action:nil];
 //    self.navigationItem.rightBarButtonItem.tintColor = [UIColor yellowColor];
+}
+
+- (void)load{
+    [[ToolHelper shareToolHelper] tpurseappappIdApplysuccess:^(id dataDict, NSString *msg, NSInteger code) {
+        NSLog(@"SUCESS");
+    } failure:^(NSInteger errorCode, NSString *msg) {
+        NSLog(@"FAIL");
+    }];
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {

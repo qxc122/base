@@ -10,15 +10,15 @@
 #define MACRO_URL_h
 
 #ifdef DEBUG
-#define  URLBASIC  @"http://172.18.126.105:7080/tour-app"
+#define  URLBASIC  @"https://tpurse.tempus.cn/tpurse"
 #else
-#define  URLBASIC  @"https://tour.tempus.cn/tour-app"
+#define  URLBASIC  @"https://tpurse.tempus.cn/tpurse"
 #endif
 
 #ifdef DEBUG
 #define URLAddress  @"URLAddress"
-#define productURLAddress  @"https://tour.tempus.cn/tour-app"
-#define tesetURLAddress  @"http://172.18.126.105:7080/tour-app"
+#define productURLAddress  @"https://tpurse.tempus.cn/tpurse"
+#define tesetURLAddress @"https://tpurse.tempus.cn/tpurse"
 #endif
 
 

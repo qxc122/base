@@ -12,7 +12,7 @@
 #import "AFNetworking.h"
 #import "NSDictionary+Add.h"
 
-#define REAUESRTIMEOUT      10    //网络请求超时时间
+#define REAUESRTIMEOUT      60    //网络请求超时时间
 
 #define PROMPT_FAIL          @"加载失败,请重试～"
 #define PROMPT_NOTCONNECT   @"网络连接异常,请检查手机网络~"
@@ -73,7 +73,7 @@ singleM(ToolHelper);
             success:(RequestSuccess)successBlock
             failure:(RequestFailure)failureBlock
 {
-    if ([self.reachability isReachable]) {
+    if (![self.reachability isReachable]) {
         failureBlock(KRespondCodeNotConnect, PROMPT_NOTCONNECT);
     } else {
         NSMutableDictionary *muDic = parameters;
@@ -119,7 +119,7 @@ singleM(ToolHelper);
             }
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 #ifdef DEBUG
-            NSLog(@"strTmp=%@  path=%@",[error description],urlStr);
+            NSLog(@"请求参数=%@  path=%@",[error description],urlStr);
 #endif
             NSDictionary *tmp = error.userInfo;
             NSString *tmpStr = tmp[@"NSLocalizedDescription"];
@@ -134,7 +134,7 @@ singleM(ToolHelper);
                  success:(RequestSuccess)successBlock
                  failure:(RequestFailure)failureBlock
 {
-    if ([self.reachability isReachable]) {
+    if (![self.reachability isReachable]) {
         failureBlock(KRespondCodeNotConnect, PROMPT_NOTCONNECT);
     } else {
         NSMutableDictionary *muDic = parameters;
@@ -148,7 +148,7 @@ singleM(ToolHelper);
 //        } else {
 //
 //        }
-        [muDic setObject:@"accessToken" forKey:self.accessToken];  //添加公共参数 按需添加
+//        [muDic setObject:@"accessToken" forKey:self.accessToken];  //添加公共参数 按需添加
         //......
 #ifdef DEBUG
         NSString *urlStr = [NSString stringWithFormat:@"%@%@", self.baseURL, path];
@@ -156,11 +156,6 @@ singleM(ToolHelper);
         NSString *urlStr = [NSString stringWithFormat:@"%@%@", URLBASIC, path];
 #endif
 
-#ifdef DEBUG
-        NSLog(@"strTmp=%@  path=%@",[muDic DicToJsonstr],urlStr);
-#endif
-
-        
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
         manager.requestSerializer = [AFJSONRequestSerializer serializer];
         //    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/json", @"application/json",@"text/html", nil];
@@ -179,9 +174,16 @@ singleM(ToolHelper);
             }else{
                 failureBlock(KRespondCodeNone, @"服务器返回数据为空");
             }
+#ifdef DEBUG
+            NSLog(@"-------Start--------");
+            NSLog(@"请求成功：参数=%@  path=%@",[muDic DicToJsonstr],urlStr);
+            NSLog(@"-------End--------");
+#endif
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 #ifdef DEBUG
-            NSLog(@"strTmp=%@  path=%@",[error description],urlStr);
+            NSLog(@"-------Start--------");
+            NSLog(@"请求失败：参数=%@ \n 路径=%@ \n 错误信息=%@\n",[muDic DicToJsonstr],urlStr,[error description]);
+            NSLog(@"-------End--------");
 #endif
             NSDictionary *tmp = error.userInfo;
             NSString *tmpStr = tmp[@"NSLocalizedDescription"];
@@ -214,7 +216,14 @@ singleM(ToolHelper);
 -(BOOL)isReachable{
     return self.reachability.isReachable;
 }
-    
+
+- (void)tpurseappappIdApplysuccess:(RequestSuccess)successBlock
+                           failure:(RequestFailure)failureBlock{
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setObject:@"sdfsdfsdfsdf123123123123" forKey:@"deviceId"];
+    [self postJsonWithPath:@"/tpurse/app/appIdApply" parameters:params success:successBlock failure:failureBlock];
+}
+
 #ifdef DEBUG
 - (void)networkStateChange{
     if ([self.reachability currentReachabilityStatus] == ReachableViaWiFi) {

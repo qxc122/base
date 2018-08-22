@@ -19,7 +19,7 @@
 
 
 @interface AppDelegate ()
-@property (strong, nonatomic) ToolHelper *netStaue;
+@property (strong, nonatomic) ToolHelper *Tool;
 @end
 
 @implementation AppDelegate
@@ -27,7 +27,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    self.netStaue = [ToolHelper shareToolHelper];
+    self.Tool = [ToolHelper shareToolHelper];
 #ifdef DEBUG
      #ifdef FPS_TEST
         WSLSuspendingView * suspendingView = [WSLSuspendingView sharedSuspendingView];

@@ -30,4 +30,7 @@ singleH(ToolHelper);
               parameters:(NSMutableDictionary *)parameters
                  success:(RequestSuccess)successBlock
                  failure:(RequestFailure)failureBlock;
+
+- (void)tpurseappappIdApplysuccess:(RequestSuccess)successBlock
+                           failure:(RequestFailure)failureBlock;
 @end
