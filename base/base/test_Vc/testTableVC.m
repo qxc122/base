@@ -25,7 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"首页";
     self.registerCells = @[@"testCellXib",@"BorrowingBill"];
     
     UIButton *btn = [UIButton new];
@@ -59,8 +58,9 @@
             titleCategoryView.lineStyle = JXCategoryLineStyle_IQIYI;
             [self.navigationController pushViewController:vc animated:YES];
         } else if(indexPath.row == 1){
-            testTableVC *vc = [testTableVC new];
-            [self.navigationController pushViewController:vc animated:YES];
+            baseWkVc *vc = [baseWkVc new];
+            UINavigationController *navc = [[UINavigationController alloc]initWithRootViewController:vc];
+            [self presentViewController:navc animated:YES completion:nil];
         } else if(indexPath.row == 2){
             testCoVc *vc = [testCoVc new];
             [self.navigationController pushViewController:vc animated:YES];

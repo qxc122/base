@@ -14,7 +14,6 @@
 @end
 
 @implementation testCoVc
-- (void)hideBottomBarWhenPush{}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.registerCoCells  =@[@"testCoCellXib",@"ImageCell"];

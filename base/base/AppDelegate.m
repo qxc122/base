@@ -40,20 +40,19 @@
     #endif
 #endif
     
-    mainTableVc *MainVc = [[mainTableVc alloc] init];
-    UINavigationController *nnvc = [[UINavigationController alloc]initWithRootViewController:MainVc];
-    self.window.rootViewController = nnvc;
+    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = [[mainTableVc alloc] init];
     [self.window makeKeyAndVisible];
 
  
-    [[UINavigationBar appearance] setBackgroundImage:[[UIColor redColor] imageWithColor] forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance] setShadowImage:[[UIColor redColor] imageWithColor]];
-    
-    UINavigationBar *navBar = [UINavigationBar appearance];
-    NSMutableDictionary *md = [NSMutableDictionary dictionary];
-    md[NSFontAttributeName] = PingFangSC_Medium(17);
-    md[NSForegroundColorAttributeName] = [UIColor yellowColor];
-    [navBar setTitleTextAttributes:md];
+//    [[UINavigationBar appearance] setBackgroundImage:[[UIColor redColor] imageWithColor] forBarMetrics:UIBarMetricsDefault];
+//    [[UINavigationBar appearance] setShadowImage:[[UIColor redColor] imageWithColor]];
+//    
+//    UINavigationBar *navBar = [UINavigationBar appearance];
+//    NSMutableDictionary *md = [NSMutableDictionary dictionary];
+//    md[NSFontAttributeName] = PingFangSC_Medium(17);
+//    md[NSForegroundColorAttributeName] = [UIColor yellowColor];
+//    [navBar setTitleTextAttributes:md];
     
     return YES;
 }

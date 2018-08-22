@@ -22,24 +22,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.fd_prefersNavigationBarHidden = YES;
     
     testTableVC *homePagevc = [[testTableVC alloc]init];
     homePagevc.title = @"首页";
     UINavigationController *navhomePagevc = [[UINavigationController alloc] initWithRootViewController:homePagevc];
     
     
-    testCoVc *manageMoneyvc = [[testCoVc alloc]init];
+    testTableVC *manageMoneyvc = [[testTableVC alloc]init];
     manageMoneyvc.title = @"COtest";
     UINavigationController *navmanageMoneyvc = [[UINavigationController alloc] initWithRootViewController:manageMoneyvc];
     
     
-    baseWkVc *minevc = [[baseWkVc alloc]init];
+    testTableVC *minevc = [[testTableVC alloc]init];
     minevc.title = @"网页";
     UINavigationController *navminevc = [[UINavigationController alloc] initWithRootViewController:minevc];
     
-    TitleViewController *titleViewController = [[TitleViewController alloc]init];
+    testTableVC *titleViewController = [[testTableVC alloc]init];
     titleViewController.title = @"分页";
     UINavigationController *navminetitleViewControllerVc = [[UINavigationController alloc] initWithRootViewController:titleViewController];
     
@@ -61,6 +59,41 @@
     UIImage * normalImage4 = [[UIImage imageNamed:@"right"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImage * selectImage4 = [[UIImage imageNamed:@"right"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     navminetitleViewControllerVc.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"分页" image:normalImage4 selectedImage:selectImage4];
+    
+    {
+        [navhomePagevc.navigationBar setBackgroundImage:[[UIColor yellowColor] imageWithColor]  forBarMetrics:UIBarMetricsDefault];
+        [navhomePagevc.navigationBar setShadowImage:[[UIColor yellowColor] imageWithColor]];
+        NSMutableDictionary *md = [NSMutableDictionary dictionary];
+        md[NSFontAttributeName] = PingFangSC_Medium(17);
+        md[NSForegroundColorAttributeName] = [UIColor yellowColor];
+        [navhomePagevc.navigationBar setTitleTextAttributes:md];
+    }
+    
+    {    [navmanageMoneyvc.navigationBar setBackgroundImage:[[UIColor redColor] imageWithColor]  forBarMetrics:UIBarMetricsDefault];
+        [navmanageMoneyvc.navigationBar setShadowImage:[[UIColor redColor] imageWithColor]];
+        NSMutableDictionary *md = [NSMutableDictionary dictionary];
+        md[NSFontAttributeName] = PingFangSC_Medium(17);
+        md[NSForegroundColorAttributeName] = [UIColor yellowColor];
+        [navmanageMoneyvc.navigationBar setTitleTextAttributes:md];
+        
+    }
+    
+    {
+        [navminevc.navigationBar setBackgroundImage:[[UIColor blueColor] imageWithColor]  forBarMetrics:UIBarMetricsDefault];
+        [navminevc.navigationBar setShadowImage:[[UIColor blueColor] imageWithColor]];
+        NSMutableDictionary *md = [NSMutableDictionary dictionary];
+        md[NSFontAttributeName] = PingFangSC_Medium(17);
+        md[NSForegroundColorAttributeName] = [UIColor yellowColor];
+        [navminevc.navigationBar setTitleTextAttributes:md];
+    }
+    
+    {    [navminetitleViewControllerVc.navigationBar setBackgroundImage:[[UIColor greenColor] imageWithColor]  forBarMetrics:UIBarMetricsDefault];
+        [navminetitleViewControllerVc.navigationBar setShadowImage:[[UIColor yellowColor] imageWithColor]];
+        NSMutableDictionary *md = [NSMutableDictionary dictionary];
+        md[NSFontAttributeName] = PingFangSC_Medium(17);
+        md[NSForegroundColorAttributeName] = [UIColor yellowColor];
+        [navminetitleViewControllerVc.navigationBar setTitleTextAttributes:md];
+    }
     
     self.viewControllers = [NSArray arrayWithObjects:navhomePagevc,navmanageMoneyvc,navminevc,navminetitleViewControllerVc, nil];
 
