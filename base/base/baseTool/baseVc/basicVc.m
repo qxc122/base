@@ -18,7 +18,7 @@
     [super viewDidLoad];
     [self customBackButton];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.translucent = NO;
+
     UIView *back = [UIView new];
     back.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:back];

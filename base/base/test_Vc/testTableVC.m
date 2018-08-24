@@ -60,6 +60,7 @@
         } else if(indexPath.row == 1){
             baseWkVc *vc = [baseWkVc new];
             UINavigationController *navc = [[UINavigationController alloc]initWithRootViewController:vc];
+            navc.navigationBar.translucent = NO;
             [self presentViewController:navc animated:YES completion:nil];
         } else if(indexPath.row == 2){
             testCoVc *vc = [testCoVc new];
