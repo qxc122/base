@@ -11,6 +11,8 @@
 #import "BorrowingBill.h"
 #import "ToolHelper.h"
 
+#import "JXCategoryComponentView.h"
+#import "JXCategoryLineStyleView.h"
 #import "TitleViewController.h"
 #import "testCoVc.h"
 #import "baseWkVc.h"
